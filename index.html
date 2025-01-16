@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsApp Link Generator</title>
+    <title>Pembuat Pautan WhatsApp</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #25d366, #128c7e);
+            background: url('https://source.unsplash.com/1920x1080/?technology,abstract') no-repeat center center fixed;
+            background-size: cover;
             color: #fff;
             display: flex;
             justify-content: center;
@@ -18,45 +21,39 @@
             overflow: hidden;
         }
         .container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
             border-radius: 16px;
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            padding: 20px;
+            padding: 30px;
             width: 100%;
             max-width: 400px;
             text-align: center;
         }
         h1 {
-            font-size: 1.8em;
+            font-size: 2em;
             margin-bottom: 20px;
             color: #fff;
         }
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            position: relative;
         }
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             color: #fff;
-            font-weight: bold;
+            font-weight: 600;
         }
         input, textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: none;
             border-radius: 8px;
             font-size: 16px;
-            margin-bottom: 10px;
-        }
-        input {
             background: rgba(255, 255, 255, 0.3);
             color: #fff;
-        }
-        textarea {
-            background: rgba(255, 255, 255, 0.3);
-            color: #fff;
-            resize: none;
+            text-align: center;
         }
         input:focus, textarea:focus {
             outline: none;
@@ -65,7 +62,7 @@
         }
         button {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: #25d366;
             color: white;
             border: none;
@@ -81,7 +78,7 @@
         }
         .result {
             margin-top: 15px;
-            padding: 10px;
+            padding: 12px;
             background: rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 8px;
@@ -104,25 +101,35 @@
         footer a {
             color: #25d366;
             text-decoration: none;
+            margin-left: 5px;
+        }
+        .github-logo {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>WhatsApp Link Generator</h1>
+        <h1>Pembuat Pautan WhatsApp</h1>
         <div class="form-group">
-            <label for="phone">Phone Number (with country code):</label>
-            <input type="text" id="phone" placeholder="e.g., 60123456789">
+            <label for="phone">Nombor Telefon (dengan kod negara):</label>
+            <input type="text" id="phone" placeholder="cth: 60123456789">
         </div>
         <div class="form-group">
-            <label for="message">Message:</label>
-            <textarea id="message" rows="4" placeholder="Type your message here..."></textarea>
+            <label for="message">Mesej:</label>
+            <textarea id="message" rows="4" placeholder="Tulis mesej anda di sini..."></textarea>
         </div>
-        <button onclick="generateLink()">Generate Link</button>
+        <button onclick="generateLink()">Jana Pautan</button>
         <div class="result" id="result" style="display: none;"></div>
-        <button class="copy-btn" id="copy-btn" style="display: none;" onclick="copyToClipboard()">Copy Link</button>
+        <button class="copy-btn" id="copy-btn" style="display: none;" onclick="copyToClipboard()">Salin Pautan</button>
         <footer>
-            <p>Made with ❤️ by <a href="#">YourName</a></p>
+            <p>Dibuat dengan ❤️ oleh Muhammad Aqil Ismail</p>
+            <a href="https://github.com/BlankedWave" target="_blank">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="github-logo">
+            </a>
         </footer>
     </div>
 
@@ -132,7 +139,7 @@
             const message = encodeURIComponent(document.getElementById('message').value.trim());
 
             if (!phone) {
-                alert('Please enter a valid phone number.');
+                alert('Sila masukkan nombor telefon yang sah.');
                 return;
             }
 
@@ -148,9 +155,9 @@
         function copyToClipboard() {
             const resultDiv = document.getElementById('result');
             navigator.clipboard.writeText(resultDiv.textContent).then(() => {
-                alert('Link copied to clipboard!');
+                alert('Pautan disalin ke papan keratan!');
             }).catch(err => {
-                alert('Failed to copy link: ' + err);
+                alert('Gagal menyalin pautan: ' + err);
             });
         }
     </script>
