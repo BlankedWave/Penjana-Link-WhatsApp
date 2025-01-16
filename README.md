@@ -31,4 +31,4 @@ https://wa.me/60123456789?text=Hello%20world!
 Projek ini dibangunkan oleh [Muhammad Aqil Ismail](https://github.com/BlankedWave).
 
 ## Lesen
-Projek ini adalah sumber terbuka dan boleh digunakan di bawah lesen GPU 3.0.
+Projek ini adalah sumber terbuka dan boleh digunakan di bawah lesen GPL-3.0.
