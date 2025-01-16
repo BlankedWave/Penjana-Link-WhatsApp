@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pembuat Pautan WhatsApp</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: url('https://source.unsplash.com/1920x1080/?technology,abstract') no-repeat center center fixed;
-            background-size: cover;
+            background: linear-gradient(135deg, #25d366, #128c7e);
             color: #fff;
             display: flex;
             justify-content: center;
@@ -21,39 +18,45 @@
             overflow: hidden;
         }
         .container {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
             border-radius: 16px;
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            padding: 30px;
+            padding: 20px;
             width: 100%;
             max-width: 400px;
             text-align: center;
         }
         h1 {
-            font-size: 2em;
+            font-size: 1.8em;
             margin-bottom: 20px;
             color: #fff;
         }
         .form-group {
-            margin-bottom: 20px;
-            position: relative;
+            margin-bottom: 15px;
         }
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             color: #fff;
-            font-weight: 600;
+            font-weight: bold;
         }
         input, textarea {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: none;
             border-radius: 8px;
             font-size: 16px;
+            margin-bottom: 10px;
+        }
+        input {
             background: rgba(255, 255, 255, 0.3);
             color: #fff;
-            text-align: center;
+        }
+        textarea {
+            background: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            resize: none;
         }
         input:focus, textarea:focus {
             outline: none;
@@ -62,7 +65,7 @@
         }
         button {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             background-color: #25d366;
             color: white;
             border: none;
@@ -78,7 +81,7 @@
         }
         .result {
             margin-top: 15px;
-            padding: 12px;
+            padding: 10px;
             background: rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 8px;
@@ -101,13 +104,6 @@
         footer a {
             color: #25d366;
             text-decoration: none;
-            margin-left: 5px;
-        }
-        .github-logo {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
         }
     </style>
 </head>
@@ -126,10 +122,7 @@
         <div class="result" id="result" style="display: none;"></div>
         <button class="copy-btn" id="copy-btn" style="display: none;" onclick="copyToClipboard()">Salin Pautan</button>
         <footer>
-            <p>Dibuat dengan ❤️ oleh Muhammad Aqil Ismail</p>
-            <a href="https://github.com/BlankedWave" target="_blank">
-                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="github-logo">
-            </a>
+            <p>Dibuat dengan ❤️ oleh <a href="https://github.com/BlankedWave" target="_blank">Muhammad Aqil Ismail</a></p>
         </footer>
     </div>
 
