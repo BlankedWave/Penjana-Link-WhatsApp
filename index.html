@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Link Generator</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        input {
+            background: rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+        textarea {
+            background: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            resize: none;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border: 2px solid #25d366;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background-color: #1ebc57;
+            transform: scale(1.05);
+        }
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            word-break: break-all;
+        }
+        .copy-btn {
+            margin-top: 10px;
+            background-color: #007bff;
+        }
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        footer a {
+            color: #25d366;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WhatsApp Link Generator</h1>
+        <div class="form-group">
+            <label for="phone">Phone Number (with country code):</label>
+            <input type="text" id="phone" placeholder="e.g., 60123456789">
+        </div>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" rows="4" placeholder="Type your message here..."></textarea>
+        </div>
+        <button onclick="generateLink()">Generate Link</button>
+        <div class="result" id="result" style="display: none;"></div>
+        <button class="copy-btn" id="copy-btn" style="display: none;" onclick="copyToClipboard()">Copy Link</button>
+        <footer>
+            <p>Made with ❤️ by <a href="#">YourName</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function generateLink() {
+            const phone = document.getElementById('phone').value.trim();
+            const message = encodeURIComponent(document.getElementById('message').value.trim());
+
+            if (!phone) {
+                alert('Please enter a valid phone number.');
+                return;
+            }
+
+            const link = `https://wa.me/${phone}?text=${message}`;
+            const resultDiv = document.getElementById('result');
+            const copyBtn = document.getElementById('copy-btn');
+
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = link;
+            copyBtn.style.display = 'inline-block';
+        }
+
+        function copyToClipboard() {
+            const resultDiv = document.getElementById('result');
+            navigator.clipboard.writeText(resultDiv.textContent).then(() => {
+                alert('Link copied to clipboard!');
+            }).catch(err => {
+                alert('Failed to copy link: ' + err);
+            });
+        }
+    </script>
+</body>
+</html>
